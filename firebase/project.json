@@ -1,0 +1,40 @@
+{
+  "name": "firebase",
+  "$schema": "../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "firebase/src",
+  "projectType": "library",
+  "tags": [],
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["firebase/**/*.{ts,tsx,js,jsx}"]
+      }
+    },
+    "build": {
+      "executor": "@nrwl/vite:build",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "outputPath": "dist/firebase"
+      },
+      "configurations": {
+        "development": {
+          "mode": "development"
+        },
+        "production": {
+          "mode": "production"
+        }
+      }
+    },
+    "test": {
+      "executor": "@nrwl/vite:test",
+      "outputs": ["coverage/firebase"],
+      "options": {
+        "passWithNoTests": true,
+        "reportsDirectory": "../coverage/firebase"
+      }
+    }
+  }
+}
